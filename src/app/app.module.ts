@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {UsersModule} from "./users/users.module";
-import {GroupsModule} from "./groups/groups.module";
+
 import {CoreModule} from "./core/core.module";
+import {GroupsModule} from "./groups/groups.module";
 
 @NgModule({
   declarations: [
@@ -15,8 +16,8 @@ import {CoreModule} from "./core/core.module";
     BrowserModule,
     AppRoutingModule,
     UsersModule,
-    GroupsModule,
-    CoreModule
+    CoreModule,
+    GroupsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,13 +5,16 @@ import {RouterModule, Routes} from "@angular/router";
 import { InputSearchComponent } from './input-search/input-search.component';
 
 const route: Routes = [
-  {path: 'menu', component: MenuComponent}
+  {path: '', component: MenuComponent}
 ]
 
 @NgModule({
   declarations: [
     MenuComponent,
     InputSearchComponent
+  ],
+  exports: [
+    MenuComponent
   ],
   imports: [
     CommonModule,

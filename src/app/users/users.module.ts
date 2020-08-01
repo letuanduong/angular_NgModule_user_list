@@ -4,11 +4,12 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import {RouterModule, Routes} from "@angular/router";
 import { UserDeleteComponent } from './user-delete/user-delete.component';
-import { EditComponent } from './edit/edit.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 const route: Routes = [
-  {path: 'list', component: UserListComponent},
-  {path: 'add', component: UserAddComponent}
+  {path: '', component: UserListComponent},
+  {path: 'add', component: UserAddComponent},
+
 ];
 
 @NgModule({
@@ -16,7 +17,8 @@ const route: Routes = [
     UserListComponent,
     UserAddComponent,
     UserDeleteComponent,
-    EditComponent
+    UserEditComponent,
+    UserEditComponent
   ],
   imports: [
     CommonModule,
