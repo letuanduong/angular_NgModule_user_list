@@ -16,6 +16,7 @@
       <ng-container *ngFor="let group of groups">
         <td *ngIf="user.group_id == group.id">{{group.name}}</td>
       </ng-container>
+    <button class="btn btn-danger" (click)="delete(user.id)">Delete</button>
   </tr>
   </tbody>
 </table>

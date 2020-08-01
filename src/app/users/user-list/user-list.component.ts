@@ -13,9 +13,9 @@ export class UserListComponent implements OnInit {
 
   users: IUser[] = [];
   groups: IGroup[] = [];
-  constructor(
-    private userService: UserService,
-    private groupService: GroupService         ) {
+
+  constructor(private userService: UserService,
+      private groupService: GroupService ) {
     this.getAllUser();
   }
 
@@ -24,11 +24,18 @@ export class UserListComponent implements OnInit {
     this.groups = this.groupService.getAllGroup();
   }
 
-  getAllGroup(){
-    this
-  }
-
   ngOnInit(): void {
   }
 
+  delete(id: number) {
+    let userDelete: IUser[] = [];
+    this.users.map(
+      user => {
+        if(user.id != id) {
+          userDelete.push(user);
+        }
+      }
+    );
+    this.users = userDelete;
+  }
 }
