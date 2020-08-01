@@ -6,10 +6,12 @@ import {RouterModule, Routes} from "@angular/router";
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import {CoreModule} from "../core/core.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 const route: Routes = [
-  {path: 'list', component: UserListComponent},
+  {path: '', component: UserListComponent},
   {path: 'add', component: UserAddComponent},
+  {path: ':id/edit', component: UserEditComponent},
 ];
 
 @NgModule({
@@ -24,6 +26,7 @@ const route: Routes = [
     CommonModule,
     RouterModule.forChild(route),
     CoreModule,
+    ReactiveFormsModule
   ]
 })
 export class UsersModule { }

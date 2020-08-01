@@ -103,4 +103,29 @@ export class UserService {
   getUserList(){
     return this.users;
   }
+
+  add(user: IUser) {
+    this.users.push(user);
+  }
+
+  findById(id: number) : IUser{
+    let index =  this.getIndexUser(id);
+    return this.users[index];
+  }
+
+  edit(id: number, data: IUser) {
+    let index =  this.getIndexUser(id);
+    this.users[index].name = data.name;
+    this.users[index].email = data.email;
+    this.users[index].group_id = data.group_id;
+  }
+
+  getIndexUser(id: number) {
+    for (let i=0; i< this.users.length; i++) {
+      if (this.users[i].id === id) {
+        return i;
+      }
+    }
+  }
+
 }

@@ -5,7 +5,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {CoreModule} from "../core/core.module";
 
 const route: Routes = [
-  {path: 'list', component: GroupListComponent}
+  {path: '', component: GroupListComponent}
 ]
 
 @NgModule({

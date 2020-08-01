@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {IGroup} from "../../interface/igroup";
+import {ActivatedRoute, Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
+import {GroupService} from "../../services/group.service";
 
 @Component({
   selector: 'app-user-edit',
@@ -7,9 +12,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserEditComponent implements OnInit {
 
-  constructor() { }
+  editUserForm: FormGroup;
+  groups: IGroup[];
+
+  constructor(private fb: FormBuilder,
+              private route: ActivatedRoute,
+              private userService: UserService,
+              private groupService: GroupService,
+              private router: Router) { }
+
+  id = +this.route.snapshot.paramMap.get('id');
 
   ngOnInit(): void {
+    let user = this.userService.findById(this.id);
+    this.groups = this.groupService.getAllGroup();
+
+    this.editUserForm = this.fb.group({
+      id: [user.id, [Validators.required]],
+      name: [user.name, [Validators.required]],
+      email: [user.email, [Validators.required]],
+      group_id: [user.group_id]
+    })
+  }
+
+  submit() {
+    let newData = this.editUserForm.value;
+    this.userService.edit(this.id, newData);
+    this.router.navigate(['users'])
   }
 
 }
