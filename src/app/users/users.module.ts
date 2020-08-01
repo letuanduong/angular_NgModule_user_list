@@ -5,11 +5,11 @@ import { UserAddComponent } from './user-add/user-add.component';
 import {RouterModule, Routes} from "@angular/router";
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import {CoreModule} from "../core/core.module";
 
 const route: Routes = [
-  {path: '', component: UserListComponent},
+  {path: 'list', component: UserListComponent},
   {path: 'add', component: UserAddComponent},
-
 ];
 
 @NgModule({
@@ -18,11 +18,12 @@ const route: Routes = [
     UserAddComponent,
     UserDeleteComponent,
     UserEditComponent,
-    UserEditComponent
+    UserEditComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(route)
+    RouterModule.forChild(route),
+    CoreModule,
   ]
 })
 export class UsersModule { }

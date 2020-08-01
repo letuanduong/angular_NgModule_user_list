@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-input-search',
@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputSearchComponent implements OnInit {
 
+  @Input()
+  messageInputSearch_userList: string;
+  @Input()
+  messageInputSearch_groupList: string;
+
+  @Output()
+  keyWord: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  getKeyWord(event){
+    console.log(event);
+    let value = event.target.value;
+    this.keyWord.emit(value);
+  }
 }

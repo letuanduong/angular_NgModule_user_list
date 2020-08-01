@@ -5,7 +5,7 @@ import {RouterModule, Routes} from "@angular/router";
 import { InputSearchComponent } from './input-search/input-search.component';
 
 const route: Routes = [
-  {path: '', component: MenuComponent}
+  {path: 'tab', component: MenuComponent}
 ]
 
 @NgModule({
@@ -14,7 +14,8 @@ const route: Routes = [
     InputSearchComponent
   ],
   exports: [
-    MenuComponent
+    MenuComponent,
+    InputSearchComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IUser} from "../../interface/iuser";
 import {UserService} from "../../services/user.service";
 import {IGroup} from "../../interface/igroup";
@@ -38,4 +38,16 @@ export class UserListComponent implements OnInit {
     );
     this.users = userDelete;
   }
+
+  search(event) {
+    let keyword = event;
+    this.users = (keyword) ? this.filterByKeyword(keyword) : this.userService.getUserList();
+  }
+
+  filterByKeyword(keyword) {
+    return this.users.filter(user => {
+      return user.name.indexOf(keyword) != -1;
+    });
+  }
+
 }

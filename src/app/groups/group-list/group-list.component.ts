@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IGroup} from "../../interface/igroup";
 import {GroupService} from "../../services/group.service";
 
