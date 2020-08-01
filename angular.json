@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-NgModule-user-list"
+    }
+  },
+  "defaultProject": "angular-NgModule-user-list",
+  "cli": {
+    "analytics": "63bce3f9-07e4-4e7e-9482-8eb1844b0b1d"
+  }
 }
