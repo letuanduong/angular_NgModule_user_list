@@ -7,11 +7,13 @@ import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import {CoreModule} from "../core/core.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import { UserServerComponent } from './user-server/user-server.component';
 
 const route: Routes = [
   {path: '', component: UserListComponent},
   {path: 'add', component: UserAddComponent},
   {path: ':id/edit', component: UserEditComponent},
+  {path: 'server', component: UserServerComponent}
 ];
 
 @NgModule({
@@ -21,6 +23,7 @@ const route: Routes = [
     UserDeleteComponent,
     UserEditComponent,
     UserEditComponent,
+    UserServerComponent,
   ],
   imports: [
     CommonModule,

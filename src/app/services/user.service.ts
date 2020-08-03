@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {IUser} from "../interface/iuser";
+import {Observable} from "rxjs";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -98,7 +100,42 @@ export class UserService {
       group_id: 3
     }
   ];
-  constructor() { }
+
+
+
+  constructor(private http: HttpClient) { }
+
+  // -------------------------------------------------------------
+
+  private readonly API_URL = 'http://localhost:8080/users' ;
+  getUsers(): Observable<IUser[]>{
+    return this.http.get<IUser[]>(this.API_URL);
+  }
+
+  getUser(id: number): Observable<IUser>{
+    const url = `${this.API_URL}/${id}`;
+    return this.http.get<IUser>(url);
+  }
+
+  updateUser(user: IUser): Observable<IUser> {
+    const url =  `${this.API_URL}/${user.id}`;
+    return this.http.put<IUser>(url, user, this.httpOptions);
+  }
+
+  deleteUser(id: number): Observable<{}>  {
+    const url =  `${this.API_URL}/${id}`;
+    return this.http.delete<IUser>(url, this.httpOptions);
+  }
+
+  addUser(user: IUser): Observable<IUser>{
+    return this.http.post<IUser>(this.API_URL, user, this.httpOptions);
+  }
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  }
+
+  // -----------------------------------------------------------
 
   getUserList(){
     return this.users;

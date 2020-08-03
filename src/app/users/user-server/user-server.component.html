@@ -1,0 +1,35 @@
+<div>
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-8">
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-blue">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Three</th>
+      <th scope="col">Handle</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users, let i = index">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.group_id}}</td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+        <button class="btn btn-primary mr-2" [routerLink]="[user.id, 'edit']" >Edit</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
